@@ -30,10 +30,13 @@ import java.util.Scanner;
 //            40
 public class HJ22 {
     public   static  void change(ArrayList<Integer> input){
+
+
+
         int output;
 //        对输入的每个数据都有一个输出
         for(int i=0;i<input.size();i++){
-            if(input.get(i)<3){
+            if(input.get(i)<2){
                 output=0;
             }else {
 //                已兑换的数量

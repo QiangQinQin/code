@@ -36,10 +36,9 @@ public class sort_many {
 //           排序
             Arrays.sort(array);
             for(int i=0;i<array.length-1;i++){
-//                发现多了个结尾空格也没事
                 System.out.print(array[i]+" ");
             }
-            System.out.println(array[array.length-1]);
+            System.out.println(array[array.length-1]); ///避免最后多个 结尾空格
         }
     }
 }

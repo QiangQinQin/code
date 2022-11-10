@@ -20,6 +20,8 @@
                 for(int i=chars.length-1;i>=0;i--){
                     System.out.print(chars[i]);
                 }
+//            System.out.print(countNegative + " " );
+//            System.out.printf("%.1f", sum * 1.0 / countPositive  + '\n');
 
         }
     }

@@ -1,7 +1,5 @@
 package huaWeiOd;
 
-import java.util.Scanner;
-
 /**
  * @author QiangQin
  * * @date 2021/5/2
@@ -10,9 +8,9 @@ import java.util.Scanner;
 //转字符串处理？？？？？？？？？
 public class HJ7 {
     public static void main(String[] args) {
-        Scanner scanner=new Scanner(System.in);
-        Float num=scanner.nextFloat();
-        System.out.println(Math.round(num));
+//        Scanner scanner=new Scanner(System.in);
+//        Float num=scanner.nextFloat();
+//        System.out.println(Math.round(num));
 //        public static void getInt(Double a){
 //            int temp=0;
 //            while(temp<a){
@@ -24,5 +22,11 @@ public class HJ7 {
 //                System.out.println(temp);
 //            }
 //        }
+
+//        int a=(int) 4.6;
+//        System.out.println(a);
+        System.out.println(Integer.valueOf('汉'));
+
+//        Character
     }
 }

@@ -29,7 +29,7 @@ public class ab_many_sum {
 //        一次读一行
         while(sc.hasNextLine()) {
             String[] num = sc.nextLine().split(" ");
-            int sum = 0;
+            int sum = 0; // 每一轮要将sum重置一下
             for(int i=0; i<num.length ;i++) {
                 sum += Integer.parseInt(num[i]);
             }

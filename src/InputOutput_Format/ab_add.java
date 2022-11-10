@@ -36,7 +36,11 @@ public class ab_add {
 
         }
 
-////有时用long类型
+
+////输入有 多组(数量不确定) 测试用例，每组空格隔开两个整数
+////对于每组数据输出一行两个整数的和
+
+// 有时用long类型
 //        while(sc.hasNext()){
 //            int a = sc.nextInt();
 //            int b = sc.nextInt();

@@ -27,8 +27,7 @@ public class ab_many_add {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int num=0,add=0;
-        while(scanner.hasNext()){ //注意不能用while(true)  或者 hasNextLine()!!!!!!
-//            会报java.util.NoSuchElementException
+        while(scanner.hasNext()){ //注意不能用while(true)  或者 hasNextLine()!!!!!!   牛客网会报java.util.NoSuchElementException
             num =scanner.nextInt();
            add=0;
            for(int i=0;i<num;i++){

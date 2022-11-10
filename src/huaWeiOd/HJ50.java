@@ -13,4 +13,9 @@ package huaWeiOd;
 //  3+2*{1+2*[-4/(8-6)+7]}
 //    25
 public class HJ50 {
+    public static void main(String[] args) {
+        String str = "Hello Java. Java is a language.";
+        System.out.println(str.endsWith("Java"));//打印 Hello c++ Java is a language.
+        System.out.println(str.startsWith("Hello"));
+    }
 }
