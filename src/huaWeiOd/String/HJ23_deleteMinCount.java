@@ -1,4 +1,4 @@
-package huaWeiOd;
+package huaWeiOd.String;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -20,7 +20,7 @@ import java.util.Scanner;
  * 输出：
  * aaddd
  */
-public class HJ23 {
+public class HJ23_deleteMinCount {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String in=scanner.nextLine();

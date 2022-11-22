@@ -1,4 +1,4 @@
-package huaWeiOd;
+package huaWeiOd.math;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,8 +7,19 @@ import java.util.Scanner;
 /**
  * @author QiangQin
  * * @date 2021/10/3
+ *
+https://www.nowcoder.com/practice/8f3df50d2b9043208c5eed283d1d4da6?tpId=37&tqId=21228&rp=1&ru=/exam/oj/ta&qru=/exam/oj/ta&sourceUrl=%2Fexam%2Foj%2Fta%3Fpage%3D1%26pageSize%3D50%26search%3DHJ5%26tpId%3D37%26type%3D37&difficulty=undefined&judgeStatus=undefined&tags=&title=HJ5
+
+写出一个程序，接受一个十六进制的数，输出该数值的十进制表示。
+输入：
+0xAA
+输出：
+170
+
  */
-public class HJ5 {
+
+
+public class HJ5_16To10 {
     // 全局变量
     private final static int BASE = 16;
     private static Map<Character, Integer> map = new HashMap<Character, Integer>(){{
