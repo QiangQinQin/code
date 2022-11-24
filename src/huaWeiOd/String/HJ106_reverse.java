@@ -1,4 +1,4 @@
-package huaWeiOd;
+package huaWeiOd.String;
 
 import java.util.Scanner;
 
