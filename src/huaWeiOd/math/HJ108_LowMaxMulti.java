@@ -1,9 +1,12 @@
-package huaWeiOd;
+package huaWeiOd.math;
 
 
 import java.util.Scanner;
-//解题思路 最小公倍数=两数之积/两个数的最大公约数
-public class HJ108 {
+/*
+解题思路 最小公倍数=两数之积/两个数的最大公约数
+根据语雀 中图：https://www.yuque.com/g/qiangqin/aw0bfu/btitff/collaborator/join?token=KPNKH14fH6soIn4U# 《华为牛客题库》
+ */
+public class HJ108_LowMaxMulti {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNextInt()){

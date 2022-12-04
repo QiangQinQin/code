@@ -1,5 +1,6 @@
 package huaWeiOd.math;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -18,7 +19,47 @@ https://leetcode.cn/problems/count-primes/
 
  */
 public class LC204_PrimeCount {
+/*   官方：枚举会超时   https://leetcode.cn/problems/count-primes/solution/ji-shu-zhi-shu-by-leetcode-solution/ */
+    public int countPrimes(int n) {
+        int ans = 0;
+        for (int i = 2; i < n; ++i) {
+            ans += isPrime(i) ? 1 : 0;
+        }
+        return ans;
+    }
+
+    public boolean isPrime(int x) {
+        for (int i = 2; i * i <= x; ++i) {
+            if (x % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+/*   官方2： 埃式筛   */
+    public int countPrimesNice(int n) {
+        int[] isPrime = new int[n];
+        Arrays.fill(isPrime, 1);
+        int ans = 0;
+        for (int i = 2; i < n; ++i) {
+            if (isPrime[i] == 1) {
+                ans += 1;
+                if ((long) i * i < n) {
+                    for (int j = i * i; j < n; j += i) { //i的所有倍数，从x*x开始
+                        isPrime[j] = 0;
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
+
+        System.out.println(new LC204_PrimeCount().countPrimesNice(10));
+        /* =============== 自己================= */
         Scanner sc = new Scanner(System.in);
         int n=sc.nextInt();
 
@@ -38,7 +79,7 @@ public class LC204_PrimeCount {
 
     private static boolean judge(int num) {
         boolean flag=true;
-        for (int i = 2; i <= Math.sqrt(num); i++) {
+        for (int i = 2; i * i <= num; i++) {  //  i <= Math.sqrt(num)  不如  i * i <= num 效率高  ，而且要写=，不然输入10.预期4 （为2，3，5，7），实际输出6（2 3 4 5 7 9，多了4和9）
             if(num%i==0){
                 flag=false;
                 break;

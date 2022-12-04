@@ -44,7 +44,7 @@ public class HJ60_ClosePrime {
         int min=Integer.MAX_VALUE;
         int[] res=new int[2];
 
-        for (int i = 2; i <= target/2; i++) { //从2开始
+        for (int i = 2; i <= target/2; i++) { //从2开始  到  target/2为止（4=2+2）
             if(isPrime(i) &&  isPrime(target-i)){ // i 和 target-i  和满足
                 if(Math.abs(target-i -i) < min){
                     res[0]=i;

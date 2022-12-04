@@ -1,4 +1,4 @@
-package array;
+package huaWeiOd.array;
 /*
  * 题目：
  * 给出两个 有序 的整数数组 A和B ，请将数组 B合并到数组 A中，变成一个有序的数组

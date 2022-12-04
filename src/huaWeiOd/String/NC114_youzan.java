@@ -1,4 +1,4 @@
-package string;
+package huaWeiOd.String;
 /*
  字符串旋转:
        给定两字符串A和B，

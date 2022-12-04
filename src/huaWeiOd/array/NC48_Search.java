@@ -1,4 +1,4 @@
-package array;
+package huaWeiOd.array;
 /*
  * 给出一个转动过的有序数组，你事先不知道该数组转动了多少
   (例如,0 1 2 4 5 6 7可能变为4 5 6   7 0 1 2).

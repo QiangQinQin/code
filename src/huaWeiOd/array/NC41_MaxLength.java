@@ -1,4 +1,4 @@
-package array;
+package huaWeiOd.array;
 
 import java.util.HashMap;
 import java.util.Map;

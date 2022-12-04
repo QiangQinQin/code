@@ -1,7 +1,6 @@
-package SwordOffer;
+package huaWeiOd.array;
 
 import java.util.HashMap;
-import java.util.Stack;
 
 /**
  * @author QiangQin
@@ -25,4 +24,7 @@ class Solution {
     }
 }
 public class Offer_04_Repeat {
+    public static void main(String[] args) {
+        System.out.println(new Solution().findRepeatNumber(new int[]{2, 3, 1, 0, 2, 5, 3}));
+    }
 }
