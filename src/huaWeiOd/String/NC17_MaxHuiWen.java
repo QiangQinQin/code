@@ -1,7 +1,5 @@
 package huaWeiOd.String;
 
-import java.util.Arrays;
-
 /**
  * @author QiangQin
  * * @date 2022/11/27
@@ -20,7 +18,7 @@ https://www.nowcoder.com/practice/b4525d1d84934cf280439aeecc36f4af?tpId=196&tqId
 返回值：
 1
  */
-public class NC17_MaxComSeq {
+public class NC17_MaxHuiWen {
     /*
        ********************中心扩散法***************************
        遍历每个结点作为中心点，还需要从中心点向左右扩散比较
@@ -118,7 +116,7 @@ public int getLongestPalindrome(String s) {
 
 
     public static void main(String[] args) {
-        System.out.println(new NC17_MaxComSeq().getLongestPalindrome("abc1234321ab"));
+        System.out.println(new NC17_MaxHuiWen().getLongestPalindrome("abc1234321ab"));
         // 判断最长
         // 判断回文
     }

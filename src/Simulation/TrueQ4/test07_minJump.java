@@ -9,5 +9,5 @@ package Simulation.TrueQ4;
 最短跳跃数为2，第一次跳跃到9,第二次9之后的9个位置正好是结尾6。
 直接模拟就好。
  */
-public class test06_minJump {
+public class test07_minJump {
 }
