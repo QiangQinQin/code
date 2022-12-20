@@ -122,7 +122,7 @@ public class HJ14_SortByDictionary {
 
     public static void main(String[] args) throws IOException {
 //        Scanner sc = new Scanner(System.in);
-////===============虽增序，但去重了=================
+////===============虽增序，但去重了 ×××××××××× =================
 //        TreeSet<String> set = new TreeSet<>();
 //        int n = Integer.parseInt(sc.nextLine());
 //        for (int i = 0; i < n; i++) {
@@ -134,8 +134,24 @@ public class HJ14_SortByDictionary {
 //        }
 
 
-        withArraysAPI();
+//        withArraysAPI();
 //        withPriorityQueue();
 //        withComparator();
+
+        Scanner sc = new Scanner(System.in);
+
+        ArrayList<Integer> list = new ArrayList<>();
+        int n = Integer.parseInt(sc.nextLine());
+
+        String[] words=new String[n];
+        for (int i = 0; i < n; i++) {
+            words[i]=sc.nextLine();
+        }
+
+        Arrays.sort(words);
+        for (int i = 0; i < n; i++) {
+            System.out.println(words[i]);
+        }
+
     }
 }

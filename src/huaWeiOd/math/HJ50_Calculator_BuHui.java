@@ -29,7 +29,7 @@ https://www.nowcoder.com/practice/9999764a61484d819056f807d2a91f1e?tpId=37&tqId=
 输出：
 25
  */
-public class HJ50_Calculator {
+public class HJ50_Calculator_BuHui {
     public static void main(String[] args) throws ScriptException {
 /*
 方式1：  使用nashorn引擎

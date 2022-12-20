@@ -1,6 +1,7 @@
 package Simulation.TrueQ4;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 /**
@@ -46,6 +47,11 @@ class Node{
 }
 public class test02_LinkedList {
     public static void main(String[] args) {
+
+
+        /*
+        方法1： 模拟法
+        * */
         Scanner sc = new Scanner(System.in);
         String[] line1=sc.nextLine().split(" ");
         String headAddress=line1[0];
@@ -69,5 +75,18 @@ public class test02_LinkedList {
         }
         System.out.println(cur.value);
 
+
+        /*
+        方法2：
+        不建立链表，用LinkedList存储值
+           add(int index, E element) ;  插入到指定位置
+           get(int index)  获取指定位置
+        * */
+
+
+
+
+
     }
+
 }

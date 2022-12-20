@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author QiangQin
@@ -13,7 +15,7 @@ https://www.nowcoder.com/practice/24e6243b9f0446b081b1d6d32f2aa3aa?tpId=37&tqId=
 描述
 Redraiment是走梅花桩的高手。Redraiment可以选择任意一个起点，从前到后，但只能从低处往高处的桩子走。他希望走的步数最多，你能替Redraiment研究他最多走的步数吗？
 
-数据范围：每组数据长度满足 1 \le n \le 200 \1≤n≤200  ， 数据大小满足 1 \le val \le 350 \1≤val≤350
+数据范围：每组数据长度满足 1≤n≤200  ， 数据大小满足1≤val≤350
 
 
 输入描述：
@@ -39,23 +41,21 @@ Redraiment是走梅花桩的高手。Redraiment可以选择任意一个起点，
 所以这个结果是3。
  */
 public class HJ103_Redraiment {
-
     public static int count(int[] nums) {
-        int[] dp = new int[nums.length + 1];
-        //初始化为1
-        Arrays.fill(dp, 1);
+        int[] dp = new int[nums.length]; // dp[i]表示到 元素i结尾 时，  最长的子序列的长度。  [0, nums.length - 1]
+        //初始化为1,即 仅自己一个桩
+        Arrays.fill(dp, 1); //
         int max = 1;
         for (int i = 1; i < nums.length; ++i) {
-            for (int j = 0; j < i; ++j) {
+            for (int j = 0; j < i; ++j) { //  遍历 i前的所有起点j
                 if (nums[j] < nums[i]) {
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                    dp[i] = Math.max(dp[i], dp[j] + 1); // 即选择跳上j这个桩  或 不跳
                 }
                 max = Math.max(dp[i], max);
             }
         }
         return max;
     }
-
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         String str;
@@ -66,6 +66,7 @@ public class HJ103_Redraiment {
             for (int i = 0; i < len; ++i) {
                 nums[i] = Integer.parseInt(split[i]);
             }
+
             System.out.println(count(nums));
         }
     }

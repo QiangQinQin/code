@@ -30,13 +30,46 @@ https://www.nowcoder.com/discuss/post/421697823329071104
 排序,首尾元素加  的组内和最小
 
 青青：
-    不用看每组怎么分，是哪几个。  只要  总和%组内和=0，就行 ；
+    不用看每组怎么分，是哪几个。  只要  总和%组内和=0，就行 ；?????   反例： 2,2,2,2,3,4,5   最大组内和5，
     最大元素一人一组，组合最小值 即为最大元素；
     若不能整除，让最大元素＋一个最小元素试
     1  2  2  3  3  4  5  和为25
+
+ 付费专栏： https://renjie.blog.csdn.net/article/details/127994883
  */
-public class test01_MinSumGroup {
+public class test01_MinSumGroup_BuHui {
+
+/*
+力抠698
+给定一个整数数组  nums 和一个正整数 k，找出是否有可能把这个数组分成 k 个非空子集，其总和都相等。
+https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/
+
+ */
+    public static boolean canPartitionKSubsets(int[] nums, int k) {
+            int sum=0,max=0;
+        for (int i = 0; i < nums.length; i++) {
+            sum+=nums[i];
+            if(nums[i]>max)
+                max=nums[i];
+        }
+
+        boolean flag=false;
+        if(sum%k==0 && sum/k >=max){
+            flag=true;
+        }
+
+        return flag;
+    }
+
     public static void main(String[] args) {
+
+        /*
+        未通过用例：
+        [2,2,2,2,3,4,5]   4   预期false
+        * */
+        int[] nums={2,2,2,2,3,4,5};
+//        int[] nums={4, 3, 2, 3, 5, 2, 1};
+        System.out.println(canPartitionKSubsets(nums,4));
 //        Scanner sc = new Scanner(System.in);
 //        int n=sc.nextInt();
 //        TreeMap<Integer,Integer> treeMap = new TreeMap<>();
