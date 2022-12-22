@@ -1,4 +1,4 @@
-package huaWeiOd.backTrace;
+package huaWeiOd.recursion;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

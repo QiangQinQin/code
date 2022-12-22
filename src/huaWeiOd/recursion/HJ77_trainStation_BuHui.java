@@ -1,6 +1,4 @@
-package huaWeiOd.DF;
-
-import java.util.*;
+package huaWeiOd.recursion;
 
 /**
  * @author QiangQin
@@ -50,7 +48,7 @@ https://www.nowcoder.com/practice/97ba57c35e9f4749826dc3befaeae109?tpId=37&tqId=
 
 
 /*   ？？？？？？？？？？？？    */
-public class HJ77_trainStation {
+public class HJ77_trainStation_BuHui {
 //          /* 栈 */
 //        static List<String> l = new ArrayList<>(); //储存结果
 //

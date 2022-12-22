@@ -1,7 +1,6 @@
-package huaWeiOd.backTrace;
+package huaWeiOd.recursion;
 
 import java.util.ArrayList;
-import java.util.Queue;
 import java.util.Scanner;
 
 /**

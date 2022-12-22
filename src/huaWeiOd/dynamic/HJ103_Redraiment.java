@@ -1,4 +1,4 @@
-package huaWeiOd.DF;
+package huaWeiOd.dynamic;
 
 import java.io.BufferedReader;
 import java.io.IOException;

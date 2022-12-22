@@ -1,4 +1,4 @@
-package huaWeiOd.backTrace;
+package huaWeiOd.recursion;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -38,7 +38,7 @@ https://leetcode.cn/problems/permutation-ii-lcci/
 
  */
 /******************************************无重复字母***************************************************/
-class Solution {
+class Solution0 {
     List<String> permutations = new ArrayList<String>();//全局变量，存放结果
     char[] temp;//存储当前排列
     int n;//字符个数
@@ -193,7 +193,7 @@ public class LC_Interview08_permutation {
 //        char[] chars = str.toCharArray();
 
         // 无重复
-        System.out.println(Arrays.toString(new Solution().permutation("qwe")));;
+        System.out.println(Arrays.toString(new Solution0().permutation("qwe")));;
         // 有重复
         System.out.println(Arrays.toString(new Solution3().permutation("qqe")));;
 
