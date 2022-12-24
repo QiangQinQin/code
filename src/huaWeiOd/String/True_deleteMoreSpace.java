@@ -114,7 +114,7 @@ public class True_deleteMoreSpace {
                 String input_str = in.nextLine();
                 String[] keywords = in.nextLine().split(",");
 
-                List<int[]> coords = new ArrayList<>();
+                List<int[]> coords = new ArrayList<>(); // list的每个元素是一个int数组
                 int count = 0;  //空格个数
 
                 for(String keyword : keywords){
