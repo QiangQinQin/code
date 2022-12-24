@@ -17,6 +17,20 @@ public class testRemove {
                 add("test3");
             }};
 
+//        for (int k = 0; k < list.size(); k++) {
+//            if (list.get(k).equals("test1")) {
+//                list.remove(k); // 元素个数会变少  且  删除位置后面的元素 下标会前移一个
+//            }
+//        }
+//        System.out.println(list);
+
+        for (int k = 0; k < list.size(); k++) {
+            if (list.get(k).equals("test1")) {
+                list.remove(k); // 元素个数变少，当前下标 会变成 原本下一个元素的下标
+                k--;
+            }
+        }
+        System.out.println(list);
 //        for(String s:list){
 //            if(s.equals("test1")){
 //                list.remove(s);
