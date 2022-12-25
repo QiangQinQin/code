@@ -26,6 +26,7 @@ class Solution {
         int R = grid.length, C = grid[0].length;
         Queue<Integer> queue = new ArrayDeque<Integer>();//怀橘子队列
         Map<Integer, Integer> depth = new HashMap<Integer, Integer>();//坏橘子深度
+        // 初始化数据
         for (int r = 0; r < R; ++r) {
             for (int c = 0; c < C; ++c) {
                 if (grid[r][c] == 2) {
@@ -35,12 +36,14 @@ class Solution {
                 }
             }
         }
+
+        // 广度优先，腐烂橘子
         int ans = 0;
         // 每一个时间 都有一个队
         while (!queue.isEmpty()) {
             int code = queue.remove();//头出
             int r = code / C, c = code % C;//还原出 坐标
-            for (int k = 0; k < 4; ++k) { //处理当前坐标的四周
+            for (int k = 0; k < 4; ++k) { //处理 当前坐标的  四周橘子
                 int nr = r + dr[k];
                 int nc = c + dc[k];
                 if (0 <= nr && nr < R && 0 <= nc && nc < C && grid[nr][nc] == 1) { //坐标合法 且 是好橘子,就变坏,加到坏队 且 记录深度 且 更新 坏时间
@@ -52,6 +55,7 @@ class Solution {
                 }
             }
         }
+
         for (int[] row: grid) {//二位数组,相当于每个元素是一维数组的 一维数组   将二维数组 按 行遍历
             for (int v: row) { //再遍历数组 某行的每一列
                 if (v == 1) { //即 没有新增坏橘子时 有 新鲜的
