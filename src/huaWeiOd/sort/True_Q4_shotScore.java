@@ -45,123 +45,121 @@ https://blog.csdn.net/misayaaaaa/article/details/128042802?ops_request_misc=%257
 
 public class True_Q4_shotScore {
 
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int n=Integer.parseInt(sc.nextLine());
+
+        String[] idsStr=sc.nextLine().split(",");
+        int[] ids = new int[n];
+        for (int i = 0; i < n; i++) {
+            ids[i]=Integer.parseInt(idsStr[i]);
+        }
+
+        String[] scoreStr=sc.nextLine().split(",");
+        int[] scores = new int[n];
+        for (int i = 0; i < n; i++) {
+            scores[i]=Integer.parseInt(scoreStr[i]);
+        }
+
+        HashMap<Integer, List<Integer>> map = new HashMap<>();// id 对应 所有成绩
+        for (int i = 0; i < n; i++) {
+            if(map.containsKey(ids[i])){
+                map.get(ids[i]).add(scores[i]);
+                map.put(ids[i], map.get(ids[i]));
+            }else{
+                ArrayList<Integer> arrayList = new ArrayList<>();
+                arrayList.add(scores[i]);
+                map.put(ids[i],arrayList);
+            }
+        }
+
+        // 处理无效选手
+        HashMap<Integer,Integer> waitSort = new HashMap<>();
+        for (Map.Entry<Integer, List<Integer>> entry : map.entrySet()) {
+            if(entry.getValue().size() >=3){
+                // 得到最高的3个成绩和
+               entry.getValue().sort(new Comparator<Integer>() {
+                   @Override
+                   public int compare(Integer o1, Integer o2) {
+                       return o2-o1;
+                   }
+               });
+               waitSort.put(entry.getKey(),entry.getValue().get(0)+entry.getValue().get(1)+entry.getValue().get(2));
+            }
+        }
+
+        ArrayList<Map.Entry<Integer, Integer>> entryList = new ArrayList<>(waitSort.entrySet());
+        entryList.sort(new Comparator<Map.Entry<Integer, Integer>>() {
+            @Override
+            public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
+                if(o1.getValue().equals(o2.getValue()) ){ // Integer是基本类型，不能用==
+                       return  o2.getKey()-o1.getKey();
+                } else{
+                       return  o2.getValue()-o1.getValue();
+                }
+            }
+        });
+
+        for (int i = 0; i < entryList.size(); i++) {
+            System.out.print(entryList.get(i).getKey());
+            if(i!=entryList.size()-1){
+                System.out.print(",");
+            }
+        }
+
+    }
+
+
+//    /*
+//    博主： stream流， 简单  清楚
+//    * */
 //    public static void main(String[] args) {
+//        // 输入处理
+//        Scanner in = new Scanner(System.in);
+//        int n = Integer.parseInt(in.nextLine());
+//        List<Integer> ids = Arrays.stream(in.nextLine().split(","))
+//                .map(Integer::parseInt)
+//                .collect(Collectors.toList());
+//        List<Integer> scores =  Arrays.stream(in.nextLine().split(","))
+//                .map(Integer::parseInt)
+//                .collect(Collectors.toList());
+//        in.close();
 //
-//        Scanner sc = new Scanner(System.in);
-//        int n=Integer.parseInt(sc.nextLine());
-//
-//        String[] idsStr=sc.nextLine().split(",");
-//        int[] ids = new int[n];
+//        // 存储选手成绩信息
+//        HashMap<Integer, List<Integer>> map = new HashMap<>();
 //        for (int i = 0; i < n; i++) {
-//            ids[i]=Integer.parseInt(idsStr[i]);
+//            List<Integer> list = map.getOrDefault(ids.get(i), new LinkedList<>());// 有就get，没有就new一个
+//            list.add(scores.get(i));
+//            map.put(ids.get(i), list);
 //        }
 //
-//        String[] scoreStr=sc.nextLine().split(",");
-//        int[] scores = new int[n];
-//        for (int i = 0; i < n; i++) {
-//            scores[i]=Integer.parseInt(scoreStr[i]);
-//        }
+//        StringBuilder builder = new StringBuilder();
+//        //过滤+自定义排序
+//        map.entrySet().stream()
+//                .filter(x -> x.getValue().size() >= 3) //过滤个数 大于3
+//                .sorted((o1, o2) -> { // 排序，先按分数，再按id
+//                    Integer sum1 = get_sum_score(o1.getValue());
+//                    Integer sum2 = get_sum_score(o2.getValue());
+//                    if (sum1.equals(sum2)) {
+//                        return o2.getKey() - o1.getKey();
+//                    } else {
+//                        return sum2 - sum1;
+//                    }
+//                })
+//                .map(Map.Entry::getKey)
+//                .forEach(x -> builder.append(x).append(","));
 //
-//        HashMap<Integer, List<Integer>> map = new HashMap<>();// id 对应 所有成绩
-//        for (int i = 0; i < n; i++) {
-//            if(map.containsKey(ids[i])){
-//                map.get(ids[i]).add(scores[i]);
-//                map.put(ids[i], map.get(ids[i]));
-//            }else{
-//                ArrayList<Integer> arrayList = new ArrayList<>();
-//                arrayList.add(scores[i]);
-//                map.put(ids[i],arrayList);
-//            }
-//        }
-//
-//        // 处理无效选手
-//        HashMap<Integer,Integer> waitSort = new HashMap<>();
-//        for (Map.Entry<Integer, List<Integer>> entry : map.entrySet()) {
-//            if(entry.getValue().size() >=3){
-//                // 得到最高的3个成绩和
-//               entry.getValue().sort(new Comparator<Integer>() {
-//                   @Override
-//                   public int compare(Integer o1, Integer o2) {
-//                       return o2-o1;
-//                   }
-//               });
-//               waitSort.put(entry.getKey(),entry.getValue().get(0)+entry.getValue().get(1)+entry.getValue().get(2));
-//            }
-//        }
-//
-//        ArrayList<Map.Entry<Integer, Integer>> entryList = new ArrayList<>(waitSort.entrySet());
-//        entryList.sort(new Comparator<Map.Entry<Integer, Integer>>() {
-//            @Override
-//            public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
-//                if(o1.getValue().equals(o2.getValue()) ){ // Integer是基本类型，不能用==
-//                       return  o2.getKey()-o1.getKey();
-//                } else{
-//                       return  o2.getValue()-o1.getValue();
-//                }
-//            }
-//        });
-//
-//
-////
-//        for (int i = 0; i < entryList.size(); i++) {
-//            System.out.print(entryList.get(i).getKey());
-//            if(i!=entryList.size()-1){
-//                System.out.print(",");
-//            }
-//        }
+//        System.out.println(builder.substring(0, builder.length() - 1));
 //
 //    }
-
-
-    /*
-    博主： stream流， 简单  清楚
-    * */
-    public static void main(String[] args) {
-        // 输入处理
-        Scanner in = new Scanner(System.in);
-        int n = Integer.parseInt(in.nextLine());
-        List<Integer> ids = Arrays.stream(in.nextLine().split(","))
-                .map(Integer::parseInt)
-                .collect(Collectors.toList());
-        List<Integer> scores =  Arrays.stream(in.nextLine().split(","))
-                .map(Integer::parseInt)
-                .collect(Collectors.toList());
-        in.close();
-
-        // 存储选手成绩信息
-        HashMap<Integer, List<Integer>> map = new HashMap<>();
-        for (int i = 0; i < n; i++) {
-            List<Integer> list = map.getOrDefault(ids.get(i), new LinkedList<>());// 有就get，没有就new一个
-            list.add(scores.get(i));
-            map.put(ids.get(i), list);
-        }
-
-        StringBuilder builder = new StringBuilder();
-        //过滤+自定义排序
-        map.entrySet().stream()
-                .filter(x -> x.getValue().size() >= 3) //过滤个数 大于3
-                .sorted((o1, o2) -> { // 排序，先按分数，再按id
-                    Integer sum1 = get_sum_score(o1.getValue());
-                    Integer sum2 = get_sum_score(o2.getValue());
-                    if (sum1.equals(sum2)) {
-                        return o2.getKey() - o1.getKey();
-                    } else {
-                        return sum2 - sum1;
-                    }
-                })
-                .map(Map.Entry::getKey)
-                .forEach(x -> builder.append(x).append(","));
-
-        System.out.println(builder.substring(0, builder.length() - 1));
-
-    }
-
-    private static Integer get_sum_score(List<Integer> list) {
-        list.sort(Integer::compareTo);
-        int sum = 0;
-        for (int i = list.size() - 1; i >= list.size() - 3; i--) { // 若size小于3？？？
-            sum += list.get(i);
-        }
-        return sum;
-    }
+//
+//    private static Integer get_sum_score(List<Integer> list) {
+//        list.sort(Integer::compareTo);
+//        int sum = 0;
+//        for (int i = list.size() - 1; i >= list.size() - 3; i--) { // 若size小于3？？？
+//            sum += list.get(i);
+//        }
+//        return sum;
+//    }
 }
