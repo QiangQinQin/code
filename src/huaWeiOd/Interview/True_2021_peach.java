@@ -1,4 +1,4 @@
-package huaWeiOd.test;
+package huaWeiOd.Interview;
 
 import java.util.Scanner;
 
@@ -11,7 +11,7 @@ import java.util.Scanner;
  * input：3，11，6，7          8
  * output：                                                  4  （最小吃桃速度）
  * <p>
- * 暴力穷举？  会超时？
+ * 暴力穷举？  会超时？!!!
  * <p>
  *
  * 思路:
@@ -19,8 +19,14 @@ import java.util.Scanner;
  * 求某特定速度下，每棵树的用时，
  * 将各树用时累加起来
  * 然后 和 天兵天将回来的时间 对比
+ *
+
+同 LC875_banana
+ https://leetcode.cn/problems/koko-eating-bananas/
+ https://blog.csdn.net/weixin_44052055/article/details/123959390
+
  */
-public class peach {
+public class True_2021_peach {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);

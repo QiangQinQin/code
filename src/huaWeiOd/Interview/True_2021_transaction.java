@@ -1,7 +1,6 @@
-package huaWeiOd.test;
+package huaWeiOd.Interview;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 /*
 4,2,6,4
 5,3,8,7
@@ -85,7 +84,30 @@ https://blog.csdn.net/yancr/article/details/89364757
      对应买的顺序（2，3）  （4，7）  （4，5）  （6，8）
  */
 
-public class transaction {
+
+   /*
+    * 2022年实现：
+
+4,2,6,4
+5,3,8,7
+15
+
+先买成本低的，再卖，增加净资本
+再去买成本高的
+若成本相同，可先买售价高的
+    * */
+
+class goods{
+    int cost;
+    int sell;
+    goods(int cost,int sell){
+        this.cost=cost;
+        this.sell=sell;
+    }
+}
+
+
+public class True_2021_transaction {
     static class B implements Comparable<B> {
         int m;
         int n;
@@ -114,30 +136,70 @@ public class transaction {
         }
     }
 
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        String[] mm = in.nextLine().split(",");  //进价
-        String[] nn = in.nextLine().split(",");  //售价
-        int k = in.nextInt();//本金
 
-        B[] b = new B[mm.length]; //  将  （进价  售价） 包装成  一个B类型数据
-        for (int i = 0; i < b.length; i++) {
-            b[i] = new B(Integer.parseInt(mm[i]), Integer.parseInt(nn[i]));
+
+
+    public static void main(String[] args) {
+//      2022年实现
+        Scanner sc = new Scanner(System.in);
+        String[] costs = sc.nextLine().split(",");  //进价
+        String[] sells = sc.nextLine().split(",");  //售价
+        int money = Integer.parseInt(sc.nextLine());//本金
+
+        ArrayList<goods> list = new ArrayList<>();
+        for (int i = 0; i < costs.length; i++) {
+            goods goods = new goods(Integer.parseInt(costs[i]), Integer.parseInt(sells[i]));
+            list.add(goods);
         }
 
-        // 方便回收
-        mm = null;
-        nn = null;
+        Collections.sort(list, new Comparator<goods>() {
+            @Override
+            public int compare(goods o1, goods o2) {
+                if(o1.cost == o2.cost){
+                    return o2.sell - o1.sell;
+                }else{
+                    return o1.cost - o2.cost;
+                }
+            }
+        });
 
-        Arrays.sort(b);//  b是B类型的，用里面的CompareTo方法。按成本由低到高，利润由高到低的顺序  购买商品，再卖出 （本金增长为 原本金+利润）
-        for (int i = 0; i < b.length; i++) {
-            if (k >= b[i].m && b[i].n > b[i].m) { //能买的起  且  有利润，就买一个
-                k += (b[i].n - b[i].m);
+        int maxProfit=0; // 总利润
+        for (int i = 0; i < list.size(); i++) {
+            if(money >= list.get(i).cost){
+                int profit=list.get(i).sell-list.get(i).cost;
+                money+=profit;
+                maxProfit+=profit;
+            }else{
+                break; // 钱 不够买 剩下的任何一个物品
             }
         }
-        System.out.print(k);
 
-        in.close();
+        System.out.println(money);// 最后的本金
+
+//        // 2021年实现
+//        Scanner in = new Scanner(System.in);
+//        String[] mm = in.nextLine().split(",");  //进价
+//        String[] nn = in.nextLine().split(",");  //售价
+//        int k = in.nextInt();//本金
+//
+//        B[] b = new B[mm.length]; //  将  （进价  售价） 包装成  一个B类型数据
+//        for (int i = 0; i < b.length; i++) {
+//            b[i] = new B(Integer.parseInt(mm[i]), Integer.parseInt(nn[i]));
+//        }
+//
+//        // 方便回收
+//        mm = null;
+//        nn = null;
+//
+//        Arrays.sort(b);//  b是B类型的，用里面的CompareTo方法。按成本由低到高，利润由高到低的顺序  购买商品，再卖出 （本金增长为 原本金+利润）
+//        for (int i = 0; i < b.length; i++) {
+//            if (k >= b[i].m && b[i].n > b[i].m) { //能买的起  且  有利润，就买一个
+//                k += (b[i].n - b[i].m);
+//            }
+//        }
+//        System.out.print(k);
+//
+//        in.close();
     }
 
 
