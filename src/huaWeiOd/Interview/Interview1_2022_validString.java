@@ -18,7 +18,7 @@ import java.util.Stack;
 
  */
 
-public class Interview1_validString {
+public class Interview1_2022_validString {
     public static boolean checkValidString(String s) {
         boolean res=true;
 
